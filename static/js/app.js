@@ -48,16 +48,16 @@ function buildCharts(input) {
     // Get the otu_ids, otu_labels, and sample_values
     let otu_ids = sample.otu_ids;
     let otu_labels = sample.otu_labels;
-    let sample_value = sample.sample_values;
+    let sample_values = sample.sample_values;
 
 
     // Build a Bubble Chart
     let bubbleTrace1 = {
       x: otu_ids,
-      y: sample_value,
+      y: sample_values,
       mode: 'markers',
       marker: {
-        size: sample_value
+        size: sample_values
       }
     };
 
@@ -70,10 +70,10 @@ function buildCharts(input) {
       showlegend: false,
       height: 600,
       width: 1200
-    };
-
+    }; //https://plotly.com/javascript/bubble-charts/
 
     // Render the Bubble Chart
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout); //https://plotly.com/javascript/bubble-charts/
 
 
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
@@ -87,7 +87,7 @@ function buildCharts(input) {
   });
 };
 
-// buildCharts(944)
+buildCharts(940);
 
 d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   console.log(data);

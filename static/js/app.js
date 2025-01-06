@@ -97,9 +97,11 @@ function buildCharts(input) {
 
     // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
     let barTrace1 = {
-      x: sample_values.slice(0,10),
-      y: yTickLabels.slice(0,10),
-      type: bar
+      x: sample_values.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
+      y: yTickLabels.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
+      text: otu_labels,
+      type: 'bar',
+      orientation: 'h' //https://plotly.com/javascript/horizontal-bar-charts/
     };
 
     let barData = [barTrace1];
@@ -116,22 +118,20 @@ function buildCharts(input) {
           text: "Number of Bacteria"
         }
       }
-    };
-
-
-
+    }; // https://plotly.com/javascript/bar-charts/
 
 
     // Render the Bar Chart
+    Plotly.newPlot("bar", barData, barLayout);
 
   });
 };
 
-buildCharts(940);
+// buildCharts(940);
 
-d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
-  console.log(data);
-});
+// d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
+//   console.log(data);
+// });
 
 
 // Function to run on page load

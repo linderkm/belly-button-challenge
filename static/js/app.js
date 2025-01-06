@@ -1,14 +1,14 @@
 // Build the metadata panel
-function buildMetadata(sample) {
+function buildMetadata(input) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
 
     // get the metadata field
     let metaData = data.metadata;
 
-    // Filter the metadata for the object with the desired sample number
+    // Filter the metadata for the object with the desired sample number, store in new dictionary
     let sampleData = {};
     for (i=0; i <metaData.length; i++){
-      if (metaData[i].id == sample){
+      if (metaData[i].id == input){
         sampleData = metaData[i];
         break; // https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
       }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
@@ -28,16 +28,22 @@ function buildMetadata(sample) {
   });
 };
 
-buildMetadata(940);
 
 // function to build both charts
-function buildCharts(sample) {
+function buildCharts(input) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
 
     // Get the samples field
-
+    let samples = data.samples;
 
     // Filter the samples for the object with the desired sample number
+    let sample = {}
+    for (i=0; i <samples.length; i++){
+      if (samples[i].id == input){
+        sample = samples[i];
+        break; // https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
+      }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
+    }; // Module 14; lesson 1; Activity 5; iteration.js
 
 
     // Get the otu_ids, otu_labels, and sample_values
@@ -59,7 +65,14 @@ function buildCharts(sample) {
     // Render the Bar Chart
 
   });
-}
+};
+
+// buildCharts(944)
+
+// d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
+//   console.log(data);
+// });
+
 
 // Function to run on page load
 function init() {

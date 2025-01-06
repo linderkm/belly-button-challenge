@@ -15,12 +15,17 @@ function buildMetadata(sample) {
     }; // Module 14; lesson 1; Activity 5; iteration.js
 
     // Use d3 to select the panel with id of `#sample-metadata`
-    let currentMetaData = d3.select("#sample-metadata"); //Module 14; Lesson 3; Activity 3; index.js
+    let currentMetaData = d3.select("#sample-metadata>ul"); //Module 14; Lesson 3; Activity 3; index.js
 
     // Use `.html("") to clear any existing metadata
-
+    currentMetaData.html(""); //Module 14; Lesson 3; Activity 3; index.js
 
     // Inside a loop, you will need to use d3 to append new tags for each key-value in the filtered metadata.
+    for (var key of Object.keys(currentMetaData)){
+      let text = String(key)+ " "+String(currentMetaData[key]) //https://www.w3schools.com/jsref/jsref_string.asp
+      
+    }; // https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object
+
 
   });
 }
@@ -82,7 +87,7 @@ function init() {
 // Function for event listener
 function optionChanged(newSample) {
   // Build charts and metadata panel each time a new sample is selected
-
+  //mod14;lesson3;act09;plots.js
 }
 
 // Initialize the dashboard

@@ -52,7 +52,6 @@ function buildCharts(input) {
     let otu_labels = sample.otu_labels;
     let sample_values = sample.sample_values;
 
-
     // Build a Bubble Chart
     let bubbleTrace1 = {
       x: otu_ids,
@@ -91,11 +90,11 @@ function buildCharts(input) {
     Plotly.newPlot("bubble", bubbleData, bubbleLayout); //https://plotly.com/javascript/bubble-charts/
 
 
+
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
     let yTickLabels = otu_ids.map(function(item) {
       return "OTU"+ " " + String(item);
     }); // Module 14; Lesson 2; Activity 1; map.js
-
 
     // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
     let barTrace1 = {
@@ -122,10 +121,8 @@ function buildCharts(input) {
       }
     }; // https://plotly.com/javascript/bar-charts/
 
-
     // Render the Bar Chart
     Plotly.newPlot("bar", barData, barLayout);
-
   });
 };
 
@@ -156,6 +153,7 @@ function init() {
 };
 
 
+
 // Function for event listener
 function optionChanged() {
   // Build charts and metadata panel each time a new sample is selected
@@ -167,7 +165,6 @@ function optionChanged() {
 
 // event listener active, calling optionChanged() when manipulated.
 d3.selectAll("#selDataset").on("change", optionChanged); //mod14;lesson3;act09;plots.js
-
 
 
 

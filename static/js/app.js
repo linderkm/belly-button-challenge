@@ -52,6 +52,25 @@ function buildCharts(input) {
 
 
     // Build a Bubble Chart
+    let bubbleTrace1 = {
+      x: otu_ids,
+      y: sample_value,
+      mode: 'markers',
+      marker: {
+        size: sample_value
+      }
+    };
+
+    let bubbleData = [bubbleTrace1];
+
+    let bubbleLayout = {
+      title: {
+        text: 'Bacteria Cultures Per Sample'
+      },
+      showlegend: false,
+      height: 600,
+      width: 1200
+    };
 
 
     // Render the Bubble Chart

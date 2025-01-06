@@ -6,18 +6,16 @@ function buildMetadata(sample) {
     let metaData = data.metadata;
 
     // Filter the metadata for the object with the desired sample number
-    let sampleData = {}
+    let sampleData = {};
     for (i=0; i <metaData.length; i++){
       if (metaData[i].id == sample){
         sampleData = metaData[i];
         break; // https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
       }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
-
     }; // Module 14; lesson 1; Activity 5; iteration.js
 
-
     // Use d3 to select the panel with id of `#sample-metadata`
-
+    let currentMetaData = d3.select("#sample-metadata"); //Module 14; Lesson 3; Activity 3; index.js
 
     // Use `.html("") to clear any existing metadata
 
@@ -26,7 +24,7 @@ function buildMetadata(sample) {
 
   });
 }
-buildMetadata(940);
+buildMetadata(943);
 
 // function to build both charts
 function buildCharts(sample) {

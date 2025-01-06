@@ -55,9 +55,11 @@ function buildCharts(input) {
     let bubbleTrace1 = {
       x: otu_ids,
       y: sample_values,
+      text: otu_labels,
       mode: 'markers',
       marker: {
-        size: sample_values
+        size: sample_values,
+        color: otu_ids
       }
     };
 
@@ -70,6 +72,17 @@ function buildCharts(input) {
       showlegend: false,
       height: 600,
       width: 1200,
+      xaxis: {
+        title: {
+          text: "OTU ID"
+        }
+      },
+      yaxis: {
+        title: {
+          text: "Number of Bacteria"
+        }
+      }
+
     }; //https://plotly.com/javascript/bubble-charts/
 
     // Render the Bubble Chart
@@ -83,6 +96,29 @@ function buildCharts(input) {
 
 
     // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
+    let barTrace1 = {
+      x: sample_values.slice(0,10),
+      y: yTickLabels.slice(0,10),
+      type: bar
+    };
+
+    let barData = [barTrace1];
+
+    let barLayout = {
+      title: {
+        text: "Top 10 Bacteria Cultures Found"
+      },
+      showlegend: false,
+      // height:,
+      // width: ,
+      xaxis: {
+        title: {
+          text: "Number of Bacteria"
+        }
+      }
+    };
+
+
 
 
 
@@ -91,7 +127,7 @@ function buildCharts(input) {
   });
 };
 
-buildCharts(944);
+buildCharts(940);
 
 d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   console.log(data);

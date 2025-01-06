@@ -45,8 +45,10 @@ function buildCharts(input) {
       }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
     }; // Module 14; lesson 1; Activity 5; iteration.js
 
-
     // Get the otu_ids, otu_labels, and sample_values
+    let otu_ids = sample.otu_ids;
+    let otu_labels = sample.otu_labels;
+    let sample_value = sample.sample_values;
 
 
     // Build a Bubble Chart
@@ -58,8 +60,7 @@ function buildCharts(input) {
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
 
 
-    // Build a Bar Chart
-    // Don't forget to slice and reverse the input data appropriately
+    // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
 
 
     // Render the Bar Chart
@@ -69,9 +70,9 @@ function buildCharts(input) {
 
 // buildCharts(944)
 
-// d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
-//   console.log(data);
-// });
+d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
+  console.log(data);
+});
 
 
 // Function to run on page load

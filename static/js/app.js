@@ -69,7 +69,7 @@ function buildCharts(input) {
       },
       showlegend: false,
       height: 600,
-      width: 1200
+      width: 1200,
     }; //https://plotly.com/javascript/bubble-charts/
 
     // Render the Bubble Chart
@@ -77,9 +77,13 @@ function buildCharts(input) {
 
 
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
+    let yTickLabels = otu_ids.map(function(item) {
+      return "OTU"+ " " + String(item);
+    }); // Module 14; Lesson 2; Activity 1; map.js
 
 
     // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
+
 
 
     // Render the Bar Chart
@@ -87,7 +91,7 @@ function buildCharts(input) {
   });
 };
 
-buildCharts(940);
+buildCharts(944);
 
 d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   console.log(data);

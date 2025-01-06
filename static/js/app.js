@@ -31,8 +31,6 @@ function buildMetadata(input) {
 
 
 
-
-
 // function to build both charts
 function buildCharts(input) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
@@ -133,8 +131,7 @@ function buildCharts(input) {
 
 
 
-
-// Function to run on page load
+// Initialization function to run on page load
 function init() {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
 
@@ -156,9 +153,7 @@ function init() {
     buildCharts(firstItem);
 
   });
-}
-
-
+};
 
 
 // Function for event listener
@@ -170,7 +165,7 @@ function optionChanged() {
   buildCharts(Number(newSample));
 }; //mod14;lesson3;act09;plots.js
 
-
+// event listener active, calling optionChanged() when manipulated.
 d3.selectAll("#selDataset").on("change", optionChanged); //mod14;lesson3;act09;plots.js
 
 
@@ -182,11 +177,3 @@ init();
 
 
 
-
-
-
-
-
-d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
-  console.log(data);
-});

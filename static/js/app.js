@@ -33,47 +33,6 @@ function buildMetadata(input) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function to build both charts
 function buildCharts(input) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
@@ -144,7 +103,7 @@ function buildCharts(input) {
     let barTrace1 = {
       x: sample_values.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
       y: yTickLabels.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
-      text: otu_labels,
+      text: otu_labels.slice(0,10).reverse(),
       type: 'bar',
       orientation: 'h' //https://plotly.com/javascript/horizontal-bar-charts/
     };
@@ -172,45 +131,6 @@ function buildCharts(input) {
   });
 };
 
-// buildCharts(940);
-
-d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
-  console.log(data);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -224,12 +144,9 @@ function init() {
     // Use d3 to select the dropdown with id of `#selDataset`
     let dropdown = d3.select("#selDataset"); //Module 14; Lesson 3; Activity 3; index.js
 
-
     // Use the list of sample names to populate the select options
     // Hint: Inside a loop, you will need to use d3 to append a new option for each sample name.
     dropdown.selectAll("option").data(names).enter().append("option").text(d => d); //google ai output from search: "javascript populate a dropdown with an array using d3"
-
-
 
     // Get the first sample from the list
     let firstItem = Number(names[0]); //https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/
@@ -240,35 +157,6 @@ function init() {
 
   });
 }
-
-
-
-// Initialize the dashboard
-init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -283,26 +171,22 @@ function optionChanged() {
 }; //mod14;lesson3;act09;plots.js
 
 
-
-// d3.selectAll("#selDataset").on("change", optionChanged); 
-//mod14;lesson3;act09;plots.js
-
-
-
-
-
-
-
-
-
-
-
-
-
+d3.selectAll("#selDataset").on("change", optionChanged); //mod14;lesson3;act09;plots.js
 
 
 
 
 
 // Initialize the dashboard
-// init();
+init();
+
+
+
+
+
+
+
+
+d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
+  console.log(data);
+});

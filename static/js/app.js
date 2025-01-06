@@ -227,11 +227,12 @@ function init() {
 
     // Use the list of sample names to populate the select options
     // Hint: Inside a loop, you will need to use d3 to append a new option for each sample name.
-    let data = dropdown.property("value");
-    
+    dropdown.selectAll("option").data(names).enter().append("option").text(d => d); //google ai output from search: "javascript populate a dropdown with an array using d3"
+
+
 
     // Get the first sample from the list
-    let firstItem = names[0];
+    let firstItem = Number(names[0]); //https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/
 
     // Build charts and metadata panel with the first sample
     buildMetadata(firstItem);
@@ -273,14 +274,18 @@ init();
 
 
 // Function for event listener
-function optionChanged(newSample) {
+function optionChanged() {
   // Build charts and metadata panel each time a new sample is selected
-  //mod14;lesson3;act09;plots.js
-}
+  let dropdown = d3.select("#selDataset");
+  let newSample = dropdown.property("value");
+  buildMetadata(Number(newSample));
+  buildCharts(Number(newSample));
+}; //mod14;lesson3;act09;plots.js
 
 
 
-
+// d3.selectAll("#selDataset").on("change", optionChanged); 
+//mod14;lesson3;act09;plots.js
 
 
 

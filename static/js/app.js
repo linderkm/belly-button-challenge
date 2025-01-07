@@ -10,21 +10,21 @@ function buildMetadata(input) {
     for (i=0; i <metaData.length; i++){
       if (metaData[i].id == input){
         sampleData = metaData[i];
-        break; // https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
-      }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
-    }; // Module 14; lesson 1; Activity 5; iteration.js
+        break; // (1)
+      }; // (2)
+    }; // (3)
 
     //select the <ul> within the panel with id of `#sample-metadata`
-    let currentMetaData = d3.select("#sample-metadata>ul"); //Module 14; Lesson 3; Activity 3; index.js
+    let currentMetaData = d3.select("#sample-metadata>ul"); //(4)
 
     //clear any existing metadata
-    currentMetaData.html(""); //Module 14; Lesson 3; Activity 3; index.js
+    currentMetaData.html(""); //(4)
 
     //loop over metadata dictionary, and append new tags, for each key-value in the filtered metadata, to the <ul>.
     for (var key of Object.keys(sampleData)){
-      let text = String(key)+": "+String(sampleData[key]); //https://www.w3schools.com/jsref/jsref_string.asp
-      d3.select("#sample-metadata>ul").append("li").text(text.toUpperCase()); //Module 14; Lesson 3; Activity 3; index.js
-    }; // https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object
+      let text = String(key)+": "+String(sampleData[key]); //(5)
+      d3.select("#sample-metadata>ul").append("li").text(text.toUpperCase()); //(4)
+    }; // (6)
   });
 };
 
@@ -43,9 +43,9 @@ function buildCharts(input) {
     for (i=0; i <samples.length; i++){
       if (samples[i].id == input){
         sample = samples[i];
-        break; // https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
-      }; // Module 14; lesson 1; Activity 5; conditionals-reference.js
-    }; // Module 14; lesson 1; Activity 5; iteration.js
+        break; // (1)
+      }; // (2)
+    }; // (3)
 
     // Get the otu_ids, otu_labels, and sample_values
     let otu_ids = sample.otu_ids;
@@ -64,8 +64,10 @@ function buildCharts(input) {
       }
     };
 
+    // assign trace data to array variable
     let bubbleData = [bubbleTrace1];
 
+    // set bubble chart layout
     let bubbleLayout = {
       title: {
         text: 'Bacteria Cultures Per Sample'
@@ -84,29 +86,31 @@ function buildCharts(input) {
         }
       }
 
-    }; //https://plotly.com/javascript/bubble-charts/
+    }; // (7)
 
     // Render the Bubble Chart
-    Plotly.newPlot("bubble", bubbleData, bubbleLayout); //https://plotly.com/javascript/bubble-charts/
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout); // (7)
 
 
 
-    // For the Bar Chart, map the otu_ids to a list of strings for your yticks
+    // map the otu_ids to a list of strings for your yticks
     let yTickLabels = otu_ids.map(function(item) {
       return "OTU"+ " " + String(item);
-    }); // Module 14; Lesson 2; Activity 1; map.js
+    }); // (8)
 
-    // Build a Bar Chart. Don't forget to slice and reverse the input data appropriately
+    // Build a Bar Chart. Slice the array to show top 10, and reverse for horizontal barchart formatting.
     let barTrace1 = {
-      x: sample_values.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
-      y: yTickLabels.slice(0,10).reverse(), //Module 14; Lesson 2; Activity 7; slicing.js & sorting.js
+      x: sample_values.slice(0,10).reverse(), // (9)
+      y: yTickLabels.slice(0,10).reverse(), // (9)
       text: otu_labels.slice(0,10).reverse(),
       type: 'bar',
-      orientation: 'h' //https://plotly.com/javascript/horizontal-bar-charts/
+      orientation: 'h' // (10)
     };
 
+    // assign trace data to array variable
     let barData = [barTrace1];
 
+    // set barchart layout
     let barLayout = {
       title: {
         text: "Top 10 Bacteria Cultures Found"
@@ -119,7 +123,7 @@ function buildCharts(input) {
           text: "Number of Bacteria"
         }
       }
-    }; // https://plotly.com/javascript/bar-charts/
+    }; // (11)
 
     // Render the Bar Chart
     Plotly.newPlot("bar", barData, barLayout);
@@ -136,14 +140,13 @@ function init() {
     let names = data.names;
 
     // Use d3 to select the dropdown with id of `#selDataset`
-    let dropdown = d3.select("#selDataset"); //Module 14; Lesson 3; Activity 3; index.js
+    let dropdown = d3.select("#selDataset"); //(4)
 
     // Use the list of sample names to populate the select options
-    // Hint: Inside a loop, you will need to use d3 to append a new option for each sample name.
-    dropdown.selectAll("option").data(names).enter().append("option").text(d => d); //google ai output from search: "javascript populate a dropdown with an array using d3"
+    dropdown.selectAll("option").data(names).enter().append("option").text(d => d); // (12)
 
     // Get the first sample from the list
-    let firstItem = Number(names[0]); //https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/
+    let firstItem = Number(names[0]); // (13)
 
     // Build charts and metadata panel with the first sample
     buildMetadata(firstItem);
@@ -164,8 +167,7 @@ function optionChanged() {
 }; //mod14;lesson3;act09;plots.js
 
 // event listener active, calling optionChanged() when manipulated.
-d3.selectAll("#selDataset").on("change", optionChanged); //mod14;lesson3;act09;plots.js
-
+d3.selectAll("#selDataset").on("change", optionChanged); //(14)
 
 
 

@@ -5,8 +5,8 @@ The sources referenced below are linked to comments in the code, indicated by th
 
 -------------------------------------
 References:
-- 1) https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
-- 2) Module 14; lesson 1; Activity 5; conditionals-reference.js
+- 1. https://stackoverflow.com/questions/9830650/how-to-stop-a-javascript-for-loop
+- 2. Module 14; lesson 1; Activity 5; conditionals-reference.js
 - 3) Module 14; lesson 1; Activity 5; iteration.js
 - 4) Module 14; Lesson 3; Activity 3; index.js
 - 5) https://www.w3schools.com/jsref/jsref_string.asp
@@ -18,4 +18,4 @@ References:
 - 11) https://plotly.com/javascript/bar-charts/
 - 12) Google ai output from search: "javascript populate a dropdown with an array using d3"
 - 13) https://www.geeksforgeeks.org/convert-a-string-to-an-integer-in-javascript/
-- 14) 
+- 14) module 14; lesson 3; activity 09; plots.js

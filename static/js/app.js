@@ -164,7 +164,7 @@ function optionChanged() {
   let newSample = dropdown.property("value");
   buildMetadata(Number(newSample));
   buildCharts(Number(newSample));
-}; //mod14;lesson3;act09;plots.js
+}; //(14)
 
 // event listener active, calling optionChanged() when manipulated.
 d3.selectAll("#selDataset").on("change", optionChanged); //(14)

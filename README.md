@@ -1,3 +1,6 @@
+# VIEW LIVE PAGE: https://linderkm.github.io/belly-button-challenge/
+
+
 # belly-button-challenge
 This README includes sources used during program writing for this assignment. Code for this file is saved as 'index.html' and 'app.js'. 'app.js' is stored in /static/js.
 
